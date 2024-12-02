@@ -313,7 +313,7 @@ class InstrumentResponse(object):
             instrument_name,
         )
 
-        fits_file.writeto(filename, clobber=overwrite)
+        fits_file.writeto(filename, overwrite=overwrite)
 
     @classmethod
     def create_dummy_response(cls, ebounds, monte_carlo_energies):
