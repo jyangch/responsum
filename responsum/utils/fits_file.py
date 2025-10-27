@@ -1,7 +1,7 @@
 from astropy.io import fits
 import numpy as np
 import astropy.units as u
-import pkg_resources
+from importlib.metadata import version
 
 # NOTE: Much of this code comes from 3ML developed by Giacomo Vianello and myself ( J. Michael Burgess)
 
@@ -238,9 +238,7 @@ class FITSExtension(object):
         # update the header to indicate that the file was created by Responsum
 
         if creator is None:
-            creator = "RESPONSUM v.%s" % (
-                pkg_resources.get_distribution("responsum").version
-            )
+            creator = f"RESPONSUM v.{version('responsum')}"
 
         self._hdu.header.set("CREATOR", creator, "(J. Burgess, jburgess@mpe.mpg.de)")
 
